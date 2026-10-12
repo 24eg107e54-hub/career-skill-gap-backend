@@ -14,7 +14,7 @@ import com.careerskillgap.backend.repository.ProjectRepository;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
+@CrossOrigin(origins = "*")
 public class ProjectController {
 
     private final ProjectRepository projectRepository;

@@ -16,10 +16,7 @@ import com.careerskillgap.backend.repository.CareerSkillRepository;
 
 @RestController
 @RequestMapping("/api/career-skills")
-@CrossOrigin(origins = {
-    "http://localhost:5173",
-    "http://localhost:5174"
-})
+@CrossOrigin(origins = "*")
 public class CareerSkillController {
 
     private final CareerSkillRepository careerSkillRepository;

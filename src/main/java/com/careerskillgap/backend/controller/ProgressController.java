@@ -15,7 +15,7 @@ import com.careerskillgap.backend.repository.ProgressRepository;
 
 @RestController
 @RequestMapping("/api/progress")
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
+@CrossOrigin(origins = "*")
 public class ProgressController {
 
     private final ProgressRepository progressRepository;

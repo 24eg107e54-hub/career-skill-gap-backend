@@ -14,10 +14,7 @@ import com.careerskillgap.backend.service.SkillGapService;
 
 @RestController
 @RequestMapping("/api/skill-gap")
-@CrossOrigin(origins = {
-        "http://localhost:5173",
-        "http://localhost:5174"
-})
+@CrossOrigin(origins = "*")
 public class SkillGapController {
 
     private final SkillGapService skillGapService;
