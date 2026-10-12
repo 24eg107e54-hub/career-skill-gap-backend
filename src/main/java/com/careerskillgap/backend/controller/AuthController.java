@@ -1,5 +1,7 @@
 package com.careerskillgap.backend.controller;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,7 +33,7 @@ public class AuthController {
 
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             return ResponseEntity.badRequest()
-                    .body("Email already registered");
+                    .body(Map.of("message", "Email already registered"));
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -40,7 +42,7 @@ public class AuthController {
 
         savedUser.setPassword(null);
 
-                return ResponseEntity.ok(savedUser);
+        return ResponseEntity.ok(savedUser);
     }
 
     @PostMapping("/login")
@@ -51,7 +53,7 @@ public class AuthController {
 
         if (user == null) {
             return ResponseEntity.badRequest()
-                    .body("Invalid email or password");
+                    .body(Map.of("message", "Invalid email or password"));
         }
 
         if (!passwordEncoder.matches(
@@ -59,7 +61,7 @@ public class AuthController {
                 user.getPassword())) {
 
             return ResponseEntity.badRequest()
-                    .body("Invalid email or password");
+                    .body(Map.of("message", "Invalid email or password"));
         }
 
         user.setPassword(null);

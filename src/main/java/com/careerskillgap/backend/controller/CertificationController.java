@@ -26,4 +26,9 @@ public class CertificationController {
     public List<Certification> getCertifications() {
         return certificationRepository.findAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteCertification(@PathVariable Long id) {
+        certificationRepository.deleteById(id);
+    }
 }

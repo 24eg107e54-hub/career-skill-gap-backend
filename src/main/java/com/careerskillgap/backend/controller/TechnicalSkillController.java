@@ -33,4 +33,9 @@ public class TechnicalSkillController {
 
         return skillRepository.findByUserId(userId);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteSkill(@PathVariable Long id) {
+        skillRepository.deleteById(id);
+    }
 }
